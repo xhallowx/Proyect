@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+  }
+  section {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  section::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      #000,
+      rgb(253, 253, 253) /*rgb(1, 38, 248)*/,
+      #000
+    );
+    animation: animate 5s linear infinite;
+  }
+  @keyframes animate {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  section span {
+    position: relative;
+    display: block;
+    width: calc(6.25vw - 2px);
+    height: calc(6.25vw - 2px);
+    background: #000;
+    z-index: 2;
+    transition: 1.5s;
+  }
+  section span:hover {
+    background: rgb(253, 253, 253) /*rgb(1, 38, 248)*/;
+    transition: 0.1s;
+  }
+  /*Color de la caja trasera*/
+  section main {
+    position: absolute;
+    width: auto;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgb(253, 253, 253) /*rgb(1, 38, 248)*/;
+    filter: opacity(0.95);
+  }
+  
+  .contenedor__todo {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+  }
+  /*Color de la caja*/
+  .caja__trasera {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    filter: blur(0px);
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 50px;
+  }
+  /*Texto de fondo*/
+  .caja__trasera div {
+    margin: 50px 40px;
+    color: rgb(253, 253, 253);
+    transition: all 500ms;
+  }
+  /*Color del boton del fondo*/
+  .caja__trasera button {
+    padding: 10px 40px;
+    border: 2px solid rgb(253, 253, 253) /*rgb(1, 38, 248)*/;
+    font-size: 14px;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgb(253, 253, 253);
+    outline: none;
+    transition: all 300ms;
+    border-radius: 50px;
+  }
+  /*Color del boton al pasar cursor*/
+  .caja__trasera button:hover {
+    background: rgb(253, 253, 253);
+    color: rgb(0, 0, 0) /*rgb(1, 38, 248)*/;
+    transition: 1.2s;
+  }
+  /*Color de boton de entrar/registrar*/
+  .contenedor__login-registro form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: rgb(253, 253, 253) /*rgb(1, 38, 248)*/;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    outline: none;
+    border-radius: 50px;
+    border: 2px solid rgb(253, 253, 253);
+  }
+  .contenedor__todo form input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #fff;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+  }
+  .formulario__login {
+    opacity: 1;
+    display: block;
+  }

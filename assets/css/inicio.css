@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #575252;
+}
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 500px;
+  margin-top: 0%;
+}
+
+.slider {
+  overflow: hidden;
+  background-color: #fff;
+  margin: 0 15px;
+  height: 150px;
+  width: 60px;
+  border-radius: 30px;
+  box-shadow: 15px 20px 20px rgba(0, 0, 0, 0.1), -10px -10px 25px #000,
+    inset 0px 10px 15px rgba(0, 0, 255, 0.1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 70px;
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2298f8,
+    inset 0px 0px 0px rgba(0, 0, 0, 0.1);
+  animation: animate_2 2.5s ease-in-out infinite;
+  animation-delay: calc(-0.09s * var(--i));
+}
+
+@keyframes animate_2 {
+  0% {
+    transform: translateY(250px) rotate(-80deg);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(250px) rotate(80deg);
+    filter: hue-rotate(180deg);
+  }
+}
+
+.circle {
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #575252, rgb(255, 255, 255));
+  filter: drop-shadow(0px 0px 30px #575252);
+}
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  font-family: "Dancing Script";
+  color: #000;
+  text-align: center;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px #000, 0 0 10px #575252, 0 0 30px #575252;
+  animation: graffitiFuturisticAnimation 3s infinite ease-in-out;
+}
+
+@keyframes graffitiFuturisticAnimation {
+  0%,
+  100% {
+    text-shadow: 2px 2px 4px #000, 0 0 10px #575252, 0 0 30px #575252;
+  }
+  50% {
+    text-shadow: 4px 4px 8px #000, 0 0 15px #575252, 0 0 25px #575252;
+  }
+}
+
+.mask {
+  position: absolute;
+  opacity: 0;
+  mask-image: url(../images/circle.svg);
+  mask-size: 25px;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: opacity 0.3s ease, background 0.3s ease, mask-size 0.3s ease;
+}
+
+.mask:hover {
+  opacity: 1;
+  background: rgb(255, 255, 255);
+  mask-size: 300px;
+}
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Asegura que el logo y el menú estén en extremos opuestos */
+  padding: 25px;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.nav.active {
+  background: #2b2a2a;
+  padding: 15px;
+  filter: drop-shadow(0px 0px 10px #fff);
+}
+
+.nav.active .logo,
+.nav.active a {
+  color: #fff;
+  filter: drop-shadow(0px 1px 2px #616161);
+}
+
+.nav.active a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.logo {
+  font-size: 35px;
+  color: #000;
+  font-weight: bold;
+  filter: drop-shadow(0px 2px 5px #000);
+  animation: colorCycle 8s infinite, scaleUp 3.5s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes colorCycle {
+  0% {
+    color: black;
+  }
+  25% {
+    color: #2b2a2a;
+  }
+  50% {
+    color: white;
+  }
+  75% {
+    color: #2b2a2a;
+  }
+  100% {
+    color: black;
+  }
+}
+
+@keyframes scaleUp {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.menu {
+  display: flex;
+  margin-left: auto;
+}
+
+.menu li {
+  list-style: none;
+  margin: 10px;
+}
+
+.menu li a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.5s ease;
+  filter: drop-shadow(0px 2px 4px #000);
+  font-size: 20px;
+}
+
+.menu li a:hover {
+  padding: 5px 10px;
+  background: #9c9c9c;
+  color: #000;
+  border-radius: 15px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-image: url(/assets/images/Ry.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-repeat: no-repeat;
+  margin-top: -155px;
+  box-shadow: 5px 8px 20px 2px;
+}
+
+.about {
+  padding: 20px 20px;
+  text-align: center;
+  background: #fff;
+  filter: drop-shadow(0px 0px 30px #fff);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.about p {
+  font-size: 18px;
+  color: #000;
+  line-height: 1.6;
+}
+
+.about img {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+.parfum-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e0e0e0;
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 5px 5px 15px #0a0a0a, -5px -5px 15px #2a2a2a;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  border: none;
+  pointer-events: none; /* Evita que sea clickeable */
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  perspective: 1000px;
+}
+
+@keyframes colorShift {
+  0%,
+  100% {
+    color: #00f; /* Azul */
+    text-shadow: 0px 0px 20px #00f;
+  }
+  25% {
+    color: #8000ff; /* Morado */
+    text-shadow: 0px 0px 20px #8000ff;
+  }
+  50% {
+    color: #ff00ff; /* Rosa */
+    text-shadow: 0px 0px 20px #ff00ff;
+  }
+  75% {
+    color: #ff8000; /* Naranja */
+    text-shadow: 0px 0px 20px #ff8000;
+  }
+}
+
+@keyframes expandShrink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.parfum-button {
+  animation: expandShrink 3s infinite, colorShift 6s infinite;
+}
+/* Estilo para la sección de marcas */
+.brands {
+  padding: 20px 20px;
+  text-align: center;
+  background: #f5f5f5;
+  /* box-shadow: inset 0px 0px 20px #000; */
+}
+
+.brands-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.brands h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: "Dancing Script", cursive;
+}
+
+.brands-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.brands-logos img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.brands-logos img:hover {
+  transform: scale(1.1);
+}
+
+.contact {
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: inset 0px 0px 18px 8px;
+}
+
+.contact-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.contact-text span {
+  display: block;
+  color: #000;
+  font-size: 20px;
+  filter: drop-shadow(1px 1px 1px #2c2c2c);
+}
+
+.business-name {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+  filter: drop-shadow(1px 1px 1px #2c2c2c);
+}
+
+.contact-icons {
+  display: flex;
+  gap: 25px;
+}
+
+.contact-icons .icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact-icons .whatsapp {
+  background-image: url("");
+}
+
+.contact-icons .instagram {
+  background-image: url("assets/images/instagram-icon.svg");
+}
+
+.contact-icons .tiktok {
+  background-image: url("assets/images/tiktok-icon.svg");
+}

@@ -1,0 +1,390 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 500px;
+  margin-top: 0%;
+}
+
+.slider {
+  overflow: hidden;
+  background-color: #fff;
+  margin: 0 15px;
+  height: 150px;
+  width: 60px;
+  border-radius: 30px;
+  box-shadow: 15px 20px 20px rgba(0, 0, 0, 0.1), -10px -10px 25px #000,
+    inset 0px 10px 15px rgba(0, 0, 255, 0.1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 70px;
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2298f8,
+    inset 0px 0px 0px rgba(0, 0, 0, 0.1);
+  animation: animate_2 2.5s ease-in-out infinite;
+  animation-delay: calc(-0.09s * var(--i));
+}
+
+@keyframes animate_2 {
+  0% {
+    transform: translateY(250px) rotate(-80deg);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(250px) rotate(80deg);
+    filter: hue-rotate(180deg);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  background: #575252;
+}
+
+/* Estilos de la navegación */
+.nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Asegura que el logo y el menú estén en extremos opuestos */
+  padding: 25px;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.nav.active {
+  background: #2b2a2a;
+  padding: 15px;
+  filter: drop-shadow(0px 0px 10px #fff);
+}
+
+.nav.active .logo,
+.nav.active a {
+  color: #fff;
+  filter: drop-shadow(0px 1px 2px #616161);
+}
+
+.nav.active a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.logo {
+  font-size: 30px;
+  color: #000;
+  font-weight: bold;
+  filter: drop-shadow(0px 2px 5px #000);
+  animation: colorCycle 8s infinite, scaleUp 3.5s infinite ease-in-out;
+  display: inline-block;
+}
+
+@keyframes colorCycle {
+  0% {
+    color: black;
+  }
+  25% {
+    color: gray;
+  }
+  50% {
+    color: white;
+  }
+  75% {
+    color: gray;
+  }
+  100% {
+    color: black;
+  }
+}
+
+@keyframes scaleUp {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.menu {
+  display: flex;
+  margin-left: auto;
+}
+
+.menu li {
+  list-style: none;
+  margin: 10px;
+}
+
+.menu li a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.5s ease;
+  filter: drop-shadow(0px 2px 4px #000);
+}
+
+.menu li a:hover {
+  padding: 5px 10px;
+  background: #9c9c9c;
+  color: #000;
+  border-radius: 15px;
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 90vh; /* Altura del banner */
+  background-image: url(/assets/images/Ry.png);
+  background-size: cover;
+  background-position: center;
+  position: relative; /* Posicionamiento relativo para el pseudo-elemento */
+  overflow: hidden; /* Asegura que el marco dorado no sobresalga */
+}
+
+/* Marco dorado con dos líneas */
+.banner::before,
+.banner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #000; /* Color dorado del marco */
+}
+
+/* Primera línea del marco */
+.banner::before {
+  height: 10px; /* Altura de la primera línea */
+  bottom: -10px; /* Ajusta para que la línea esté justo fuera del banner */
+  box-shadow: 10px #000; /* Sombra dorada para un efecto más realista */
+}
+
+/* Segunda línea del marco */
+.banner::after {
+  height: 5px; /* Altura de la segunda línea */
+  bottom: -15px; /* Ajusta para que la línea esté justo fuera de la primera línea */
+  box-shadow: 0 5px #000; /* Sombra dorada más sutil */
+}
+
+/* Sección sobre el negocio */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+  background: #fff;
+  filter: drop-shadow(0px 0px 30px #fff);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.about p {
+  font-size: 18px;
+  color: #000;
+  line-height: 1.6;
+}
+
+.about img {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Sección de Información de Perfumes */
+.perfume-info {
+  padding: 70px 50px 50px; /* Aumenta el padding superior para dejar espacio entre el banner y la información del perfume */
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  background: #1a1a1a;
+}
+
+/* Perfume Cards */
+.perfume-card {
+  display: flex;
+  align-items: center;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateX(-50px); /* Inicialmente desplazado hacia la izquierda */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Visible when active */
+.perfume-card.visible {
+  opacity: 1; /* Totalmente visible */
+  transform: translateX(0); /* Desplazado a su posición original */
+}
+
+/* Oculto cuando desaparece */
+.perfume-card.hidden {
+  opacity: 0; /* Invisible */
+  transform: translateX(-50px); /* Desplazado hacia la izquierda */
+}
+
+/* Imagen del Perfume */
+.perfume-card img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+/* Detalles del Perfume */
+.perfume-details {
+  color: #fff;
+}
+
+.perfume-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.perfume-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.perfume-card p {
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .perfume-card {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transform: translateX(
+      0
+    ); /* Elimina el desplazamiento horizontal en dispositivos móviles */
+  }
+
+  .perfume-card img {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+.parfum-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e0e0e0;
+  text-align: center;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 5px 5px 15px #0a0a0a, -5px -5px 15px #2a2a2a;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  border: none;
+  pointer-events: none; /* Evita que sea clickeable */
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  perspective: 1000px;
+}
+
+@keyframes colorShift {
+  0%,
+  100% {
+    color: #00f; /* Azul */
+    text-shadow: 0px 0px 20px #00f;
+  }
+  25% {
+    color: #8000ff; /* Morado */
+    text-shadow: 0px 0px 20px #8000ff;
+  }
+  50% {
+    color: #ff00ff; /* Rosa */
+    text-shadow: 0px 0px 20px #ff00ff;
+  }
+  75% {
+    color: #ff8000; /* Naranja */
+    text-shadow: 0px 0px 20px #ff8000;
+  }
+}
+
+@keyframes expandShrink {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.parfum-button {
+  animation: expandShrink 3s infinite, colorShift 6s infinite;
+}
+.perfume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 columnas */
+  gap: 40px; /* Espacio entre las cartas */
+  padding: 30px;
+  justify-content: center;
+}
+
+/* Estilo para cada carta de perfume */
+.perfume-card {
+  background: #333;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateX(-30px); /* Inicialmente desplazado hacia la izquierda */
+}
+
+.perfume-card.visible {
+  opacity: 1;
+  transform: translateX(0); /* Regresa a su posición original */
+}
+
+/* Media Queries para responsive */
+@media (max-width: 768px) {
+  .perfume-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columnas en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .perfume-grid {
+    grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+  }
+}
